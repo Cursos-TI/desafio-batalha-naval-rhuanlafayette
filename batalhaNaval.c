@@ -26,7 +26,7 @@ int main() {
         };
         printf("\n"); //printf com \n para pular uma linha assim que as colunas forem definidas
 
-    int numerolinha[10] = {1,2,3,4,5,6,7,8,9,10}; //array para enumerar as linhas e dar sequência ao jogo
+    int numerolinha[10] = {1,2,3,4,5,6,7,8,9,0}; //array para enumerar as linhas e dar sequência ao jogo
         for (int l = 0; l < 10; l++) { // for externo para imprimir cada número de linha
         printf("%d", numerolinha[l]);
         for(int j = 0; j < 10; j++){ // for interno para imprimir o tabuleiro linha por linha
@@ -35,15 +35,32 @@ int main() {
         printf("\n"); // printf para pular uma linha
     };
 
+
     int naviovertical[1] = {3}; // array criado para atualizar o tabuleiro com o navio vertical
     int naviohorizontal[1] = {3}; // array criado para atualizar o tabuleiro com o navio horizontal
     for (int n = 2; n < 5; n++) // for criado para atualizar os numeros no tabuleiro
-    { // Com a intenção de mudar C2,C3 e C4, o for alterou os campos 2,3 e 4 da linha C para 3
+    { // Com a intenção de mudar C7,D7 e E7, o for alterou os campos 3,4 e 5 da linha 7 para 3
         tabuleiro[n][6]= naviovertical[0];
     };
-    for(int v = 1;v < 4; v++){ //Seguindo a mesma lógica, o for alterou os campos C7,D7e E7 para 3, criando o navio horizontal
-        tabuleiro[2][v] = naviohorizontal[0];
+    for(int v = 1;v < 4; v++){ //Seguindo a mesma lógica, o for alterou os campos F2,F3 e F4 para 3, criando o navio horizontal
+        tabuleiro[5][v] = naviohorizontal[0];
     };
+
+  //INICIO DESAFIO AVENTUREIRO NAVIO DIAGOLNAL
+    for(int d = 0; d < 1; d++){ //utilização do for para alterar os elementos das linhas e colunas
+        for (int di = 0; di < 3; di++) //campo [0][0] será o primeiro a mudar, depois [1][1] e [2][2]
+        {
+            tabuleiro[d][di] = 3; //codigo para que onde antes fosse 0 agora se torne 3
+            d++;}; // A linha e a coluna precisam aumentar em conjunto, então coloqquei o for externo para rodar apenas 1 vez, e o interno para aumentar a coluna em conjunto
+        };
+
+        for(int d = 0; d < 1; d++){ //mesma logica do for acima. 
+            for (int di = 9; di > 6; di--) // dessa vez para que o barco ficasse na dioganal embaixo [9][0],[8][1],[7][2] alterei a posição inicial e fui diminuindo
+            {
+                tabuleiro[d][di] = 3;
+                d++;};
+            };
+    
     
     printf("\n"); //printf para pular uma linha
     printf("Tabuleiro Atualizado com navios: \n"); // inicio da impressão do novo tabuleiro com os navios
