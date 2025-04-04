@@ -4,9 +4,46 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+#define LINHA 10
+#define COLUNA 10
+
+void CONE(){
+    int maxlinha = 4, maxcoluna = 4, mincoluna = 0;
+    int tabuleiro[LINHA][COLUNA];
+
+for ( int i = 0; i < LINHA; i++){
+    for (int j = 0; j < COLUNA; j++){
+       if (tabuleiro[i][j] != 0)
+       {
+            tabuleiro[i][j] = 0;
+       };
+        printf("%d", tabuleiro[i][j]);
+    }
+        printf("\n");
+};
+
+for (int i = 0; i < LINHA; i++){
+    for (int j = 0; j < COLUNA; j++){
+        if (i == maxlinha && j >= mincoluna && j <= maxcoluna) {
+            tabuleiro[i][j] = 1;
+            };
+        
+        }  
+    };
+
+printf("\n");
+for ( int i = 0; i < LINHA; i++){
+    for (int j = 0; j < COLUNA; j++){
+        printf("%d", tabuleiro[i][j]);
+    }
+    printf("\n");
+};
+
+};
+
 int main() {
 //criação do tabuleiro 10x10, todos os valores 0 conforme solicitado
-    int tabuleiro[10][10] = {
+    int tabuleiro[LINHA][COLUNA] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
@@ -20,16 +57,16 @@ int main() {
     };
         
     printf("         Tabuleiro: \n"); //printf titulo 'Tabuleiro' 
-    char linhacoluna[10] = {'A','B','C','D','E','F','G','H','I','J'}; // criação de Array para que cada coluna seja denominada por uma letra
-        for (int c = 0; c < 10; c++) { // criação do for para que o sistema imprima cada letra sem precisar criar 10 linhas de codigo
+    char linhacoluna[COLUNA] = {'A','B','C','D','E','F','G','H','I','J'}; // criação de Array para que cada coluna seja denominada por uma letra
+        for (int c = 0; c < COLUNA; c++) { // criação do for para que o sistema imprima cada letra sem precisar criar 10 linhas de codigo
          printf("  %c", linhacoluna[c]); // coloquei um espaço antes do %c para que cada letra ficasse separada e organizada
         };
         printf("\n"); //printf com \n para pular uma linha assim que as colunas forem definidas
 
-    int numerolinha[10] = {1,2,3,4,5,6,7,8,9,0}; //array para enumerar as linhas e dar sequência ao jogo
-        for (int l = 0; l < 10; l++) { // for externo para imprimir cada número de linha
+    int numerolinha[LINHA] = {1,2,3,4,5,6,7,8,9,0}; //array para enumerar as linhas e dar sequência ao jogo
+        for (int l = 0; l < LINHA; l++) { // for externo para imprimir cada número de linha
         printf("%d", numerolinha[l]);
-        for(int j = 0; j < 10; j++){ // for interno para imprimir o tabuleiro linha por linha
+        for(int j = 0; j < LINHA; j++){ // for interno para imprimir o tabuleiro linha por linha
             printf("%3d", tabuleiro[j][l]); //Utilizei o %3d para dar uma distância de modo que os valores ficassem embaixo de cada letra da coluna
         }
         printf("\n"); // printf para pular uma linha
@@ -66,18 +103,21 @@ int main() {
     printf("Tabuleiro Atualizado com navios: \n"); // inicio da impressão do novo tabuleiro com os navios
 
     
-    for (int c = 0; c < 10; c++) { // repeti o código que imprime as colunas definidas no array ' linhacoluna'
+    for (int c = 0; c < LINHA; c++) { // repeti o código que imprime as colunas definidas no array ' linhacoluna'
          printf("  %c", linhacoluna[c]);
         };
         printf("\n");
     
     
-    for (int l = 0; l < 10; l++) { //repeti o codigo que imprime o número das linhas e o tabuleiro linha por linha
+    for (int l = 0; l < LINHA; l++) { //repeti o codigo que imprime o número das linhas e o tabuleiro linha por linha
         printf("%d", numerolinha[l]);
-        for(int j = 0; j < 10; j++){
+        for(int j = 0; j < COLUNA; j++){
             printf("%3d", tabuleiro[j][l]);
         } // como os valores já foram alterados internamente no codigo, a repetir o código ele imprime o tabuleiro atualizado
         printf("\n"); //pular linha
+    
+    CONE(1);
+    
     };
     
     
