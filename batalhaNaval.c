@@ -4,42 +4,116 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
-#define LINHA 10
-#define COLUNA 10
+#define LINHA 10 //definicao do numero de linhas para caso precise mudar não precise procurar por todo o codigo
+#define COLUNA 10 //mesma logica da linha acima
 
-void CONE(){
-    int maxlinha = 4, maxcoluna = 4, mincoluna = 0;
-    int tabuleiro[LINHA][COLUNA];
+void CONE(){ // criacao de um void para que seja chamado posteriormente no codigo no momento certo
+    int tabuleiro[LINHA][COLUNA]; // criacao do tabuleiro do zero dentro do void
 
-for ( int i = 0; i < LINHA; i++){
+for ( int i = 0; i < LINHA; i++){ //utilizando for para criacao do tabuleiro 10x10
     for (int j = 0; j < COLUNA; j++){
-       if (tabuleiro[i][j] != 0)
+       if (tabuleiro[i][j] != 0) // criacao do if para que todos os numeros caso nao sejam 0 se tornem 0, deixando o tabuleiro 'limpo'
        {
             tabuleiro[i][j] = 0;
        };
-        printf("%d", tabuleiro[i][j]);
+        printf("%d", tabuleiro[i][j]); // printf para imprimir o tabuleiro apenas com agua
     }
         printf("\n");
 };
 
-for (int i = 0; i < LINHA; i++){
+for (int i = 0; i < LINHA; i++){ // utilizacao do for aninhado para a alteração no tabuleiro
     for (int j = 0; j < COLUNA; j++){
-        if (i == maxlinha && j >= mincoluna && j <= maxcoluna) {
+        if (i == 2 && j == 2 || // utilizando if para que esses campos dentro da matriz sejam alterados para 1, pois foram atingidos 
+            i == 3 && j >= 1 && j <= 3 ||
+            i == 4 && j >= 0 && j <= 4) {
             tabuleiro[i][j] = 1;
-            };
-        
-        }  
+            }
+        } 
+
+    } 
+
+printf("\n"); // printf para pular uma linha
+for ( int i = 0; i < LINHA; i++){ // for para imrprimir a matriz com as novas alterações
+    for (int j = 0; j < COLUNA; j++){
+        printf("%d", tabuleiro[i][j]);
+    }
+        printf("\n");
+    };
     };
 
-printf("\n");
+
+void cruz(){ // void criado para quando o campo que ativar e ltera os campos formando uma cruz
+    int tabuleiro[LINHA][COLUNA]; // criação do tabuleiro do 0, tudo é água
+
+    for ( int i = 0; i < LINHA; i++){
+        for (int j = 0; j < COLUNA; j++){
+           if (tabuleiro[i][j] != 0) // transformar todos os numeros da matriz em 0
+           {
+                tabuleiro[i][j] = 0;
+           };
+            printf("%d", tabuleiro[i][j]); // imprimir tabuleiro 'limpo'
+        }
+            printf("\n");
+    };
+    
+    for (int i = 0; i < LINHA; i++){ // for para as alterações
+        for (int j = 0; j < COLUNA; j++){
+            if (i >= 2 && i <= 8 && j >= 2 && j <=7 ||  // if para as alteraçõees dos campos atigidos formando a cruz, a modificação é feito linha por linha, limitando o tamanho correto
+                i >= 3 && i < 5 && j >= 0 && j <=9) {
+                tabuleiro[i][j] = 1;}
+                
+            }  
+        };
+
+printf("\n"); // impressão de uma linha + impressão da matriz atualizada
 for ( int i = 0; i < LINHA; i++){
     for (int j = 0; j < COLUNA; j++){
         printf("%d", tabuleiro[i][j]);
     }
-    printf("\n");
-};
+        printf("\n");
+    };
 
 };
+
+void octaedro(){ // void para quando o campo for atingido e varios campos mudarem formando um octaedro (losango)
+    int tabuleiro[LINHA][COLUNA]; //mesma logica inicial dos outros voids
+
+    for ( int i = 0; i < LINHA; i++){
+        for (int j = 0; j < COLUNA; j++){
+           if (tabuleiro[i][j] != 0)
+           {
+                tabuleiro[i][j] = 0;
+           };
+            printf("%d", tabuleiro[i][j]);
+        }
+            printf("\n");
+    };
+    
+    for (int i = 0; i < LINHA; i++){ // mesma logica de alteração dos outros voids
+        for (int j = 0; j < COLUNA; j++){
+            if (tabuleiro[i][j] <= tabuleiro[5][5]){ // limitacao da mudança por linha e coluna, para que fiquem dentro da matriz
+            if (i == 2 && j == 4 ||
+                i == 3 && j >= 3 && j <= 5 ||
+                i == 4 && j >= 2 && j <= 6 ||
+                i == 5 && j >= 1 && j <= 7 ||
+                i == 6 && j >= 2 && j <= 6 ||
+                i == 7 && j >= 3 && j <= 5 ||
+                i == 8 && j == 4) {
+                tabuleiro[i][j] = 1;
+                }}
+            } 
+    
+        }
+
+printf("\n"); // impressão da linha + da matriz atualizada com campos agora formando um losango (octaedro)
+for ( int i = 0; i < LINHA; i++){
+    for (int j = 0; j < COLUNA; j++){
+        printf("%d", tabuleiro[i][j]);
+    }
+        printf("\n");
+    };  
+
+}
 
 int main() {
 //criação do tabuleiro 10x10, todos os valores 0 conforme solicitado
@@ -116,7 +190,8 @@ int main() {
         } // como os valores já foram alterados internamente no codigo, a repetir o código ele imprime o tabuleiro atualizado
         printf("\n"); //pular linha
     
-    CONE(1);
+    CONE();
+
     
     };
     
