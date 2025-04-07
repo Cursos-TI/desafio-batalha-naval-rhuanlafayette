@@ -18,15 +18,15 @@ void CONE(){
 
     for (int i = 0; i < LINHA; i++){ 
         for (int j = 0; j < COLUNA; j++){
-    if (i >= 2 && i <= 8 && j >= 2 && j <=7 || 
-        i >= 3 && i < 5 && j >= 0 && j <=9||
-        i == 2 && j == 4 ||
-        i == 3 && j >= 3 && j <= 5 ||
-        i == 4 && j >= 2 && j <= 6 ||
-        i == 5 && j >= 1 && j <= 7 ||
-        i == 6 && j >= 2 && j <= 6 ||
-        i == 7 && j >= 3 && j <= 5 ||                   
-        i == 8 && j == 4) {
+    if (j >= 1 && j <= 8 && i >= 3 && i <=5 ||  
+        j >= 3 && j < 5 && i >= 0 && i <=9||
+        j == 2 && i == 4 ||
+        j == 3 && i >= 3 && i <= 5 ||
+        j == 4 && i >= 2 && i <= 6 ||
+        j == 5 && i >= 1 && i <= 7 ||
+        j == 6 && i >= 2 && i <= 6 ||
+        j == 7 && i >= 3 && i <= 5 ||                   
+        j == 8 && i == 4) {
         tabuleiro[i][j] = 5;};
         };
     };
@@ -50,9 +50,9 @@ void CONE(){
 
     for (int i = 0; i < LINHA; i++){ 
         for (int j = 0; j < COLUNA; j++){
-            if (i == 2 && j == 2 || 
-                i == 3 && j >= 1 && j <= 3 ||
-                i == 4 && j >= 0 && j <= 4) {
+            if (j == 2 && i == 2 || 
+                j == 3 && i >= 1 && i <= 3 ||
+                j == 4 && i >= 0 && i <= 4) {
                 tabuleiro[i][j] = 1;}
             } 
         } 
@@ -84,16 +84,16 @@ void cruz(){
 
     for ( int i = 0; i < LINHA; i++){
         for (int j = 0; j < COLUNA; j++){
-            if (i == 2 && j == 2 ||
-                i == 3 && j >= 1 && j <= 3 ||
-                i == 4 && j >= 0 && j <= 4 ||
-                i == 2 && j == 4 ||
-                i == 3 && j >= 3 && j <= 5 ||
-                i == 4 && j >= 2 && j <= 6 ||
-                i == 5 && j >= 1 && j <= 7 ||
-                i == 6 && j >= 2 && j <= 6 ||
-                i == 7 && j >= 3 && j <= 5 ||                   
-                i == 8 && j == 4) {
+            if (j == 2 && i == 2 ||
+                j == 3 && i >= 1 && i <= 3 ||
+                j == 4 && i >= 0 && i <= 4 ||
+                j == 2 && i == 4 ||
+                j == 3 && i >= 3 && i <= 5 ||
+                j == 4 && i >= 2 && i <= 6 ||
+                j == 5 && i >= 1 && i <= 7 ||
+                j == 6 && i >= 2 && i <= 6 ||
+                j == 7 && i >= 3 && i <= 5 ||                   
+                j == 8 && i == 4) {
                 tabuleiro[i][j] = 5;};
         }  printf("\n");
     };
@@ -117,8 +117,8 @@ void cruz(){
     
     for (int i = 0; i < LINHA; i++){ 
         for (int j = 0; j < COLUNA; j++){
-            if (i >= 2 && i <= 8 && j >= 2 && j <=7 ||  
-                i >= 3 && i < 5 && j >= 0 && j <=9) {
+            if (j >= 1 && j <= 8 && i >= 3 && i <=5 ||  
+                j >= 3 && j < 5 && i >= 0 && i <=9) {
                 tabuleiro[i][j] = 1;}
             }  
         };
@@ -152,11 +152,11 @@ void octaedro(){
     
     for ( int i = 0; i < LINHA; i++){
         for (int j = 0; j < COLUNA; j++){
-            if (i == 2 && j == 2 ||
-                i == 3 && j >= 1 && j <= 3 ||
-                i == 4 && j >= 0 && j <= 4 ||
-                i >= 2 && i <= 8 && j >= 2 && j <=7 || 
-                i >= 3 && i < 5 && j >= 0 && j <=9) {
+            if (j == 2 && i == 2 ||
+                j == 3 && i >= 1 && i <= 3 ||
+                j == 4 && i >= 0 && i <= 4 ||
+                j >= 1 && j <= 8 && i >= 3 && i <=5 ||  
+                j >= 3 && j < 5 && i >= 0 && i <=9) {
                 tabuleiro[i][j] = 5;};
         }  printf("\n");
     };
@@ -297,36 +297,43 @@ int main(){
        printf("\n"); 
 };
 
-    for ( int i = 0; i < 1; i++){
-        for (int j = 0; j < 1; j++){
+    printf("Agora veremos como ficaria o tabuleiro caso o campo [1][1] seja acertado. As áreas atingidas formarão um Cone \n");
+    for ( int i = 0; i < LINHA; i++){
+        for (int j = 0; j < COLUNA; j++){
             if (tabuleiro[i][j] == tabuleiro[1][1])
             {
                 CONE();
             };
-           
+            break;
+        };
+    };
 
-        };};
-
-        for ( int i = 0; i < 1; i++){
-            for (int j = 0; j < 1; j++){
-                if (tabuleiro[i][j] == tabuleiro[4][4])
+        printf("Agora veremos como ficaria o tabuleiro caso o campo [1][1] seja acertado. As áreas atingidas formarão uma Cruz \n");
+    
+    for ( int i = 0; i < LINHA; i++){
+        for (int j = 0; j < COLUNA; j++){
+                if (i == 4 && j == 4 && tabuleiro[i][j] == tabuleiro[4][4])
                 {
                     cruz();
                 };
-               
     
-            };};
+            };
+        };
 
+            printf("Agora veremos como ficaria o tabuleiro caso o campo [1][1] seja acertado. As áreas atingidas formarão um losango (octaedro) \n");
+    
+    for ( int i = 0; i < LINHA; i++){
+        for (int j = 0; j < COLUNA; j++){
+            if (i == 5 && j == 5 && tabuleiro[i][j] == tabuleiro[5][5])
+                {
+                     octaedro();
 
-            for ( int i = 0; i < 1; i++){
-                for (int j = 0; j < 1; j++){
-                    if (tabuleiro[i][j] == tabuleiro[5][5])
-                    {
-                        octaedro();
-                    };
+                    
+                 };
                    
-        
-                };};
+        };
+    
+    };
     
 
 }
