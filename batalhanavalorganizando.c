@@ -14,7 +14,7 @@ void CONE(){
                 tabuleiro[i][j] = 0;};
         }
             printf("\n");
-    };
+    }; 
 
     for (int i = 0; i < LINHA; i++){ 
         for (int j = 0; j < COLUNA; j++){
@@ -31,7 +31,7 @@ void CONE(){
         };
     };
 
-    for (int n = 2; n < 5; n++){ 
+     for (int n = 2; n < 5; n++){ 
         tabuleiro[n][6]= 3; };
     for(int v = 1;v < 4; v++){ 
         tabuleiro[5][v] = 3;};
@@ -46,7 +46,7 @@ void CONE(){
         for (int di = 9; di > 6; di--) {
             tabuleiro[d][di] = 3;
             d++;};
-    };
+    }; 
 
     for (int i = 0; i < LINHA; i++){ 
         for (int j = 0; j < COLUNA; j++){
@@ -235,17 +235,17 @@ int main(){
 
     for ( int i = 0; i < LINHA; i++){
         for (int j = 0; j < COLUNA; j++){
-            if (i == 2 && j == 2 ||
-                i == 3 && j >= 1 && j <= 3 ||
-                i == 4 && j >= 0 && j <= 4 ||
-                i >= 2 && i <= 8 && j >= 2 && j <=7 || 
-                i >= 3 && i < 5 && j >= 0 && j <=9||
+            if (j == 2 && i == 2 || 
+                j == 3 && i >= 1 && i <= 3 ||
+                j == 4 && i >= 0 && i <= 4||
+                j >= 1 && j <= 8 && i >= 3 && i <=5 ||  
+                j >= 3 && j < 5 && i >= 0 && i <=9||
                 i == 2 && j == 4 ||
                 i == 3 && j >= 3 && j <= 5 ||
                 i == 4 && j >= 2 && j <= 6 ||
                 i == 5 && j >= 1 && j <= 7 ||
                 i == 6 && j >= 2 && j <= 6 ||
-                i == 7 && j >= 3 && j <= 5 ||                   
+                i == 7 && j >= 3 && j <= 5 ||
                 i == 8 && j == 4) {
                 tabuleiro[i][j] = 5;};
         }  printf("\n");
@@ -328,7 +328,6 @@ int main(){
                 {
                      octaedro();
 
-                    
                  };
                    
         };
